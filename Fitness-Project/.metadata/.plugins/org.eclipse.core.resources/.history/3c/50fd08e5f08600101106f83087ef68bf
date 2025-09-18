@@ -1,0 +1,35 @@
+package com.fitness.userservice.controller;
+
+import com.fitness.userservice.dto.UsersDto;
+import com.fitness.userservice.response.UsersResponse;
+import com.fitness.userservice.service.IUsersService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/users/api")
+public class UsersController {
+
+    @Autowired
+    private IUsersService iUsersService;
+
+    @PostMapping("/registerUsers")
+    public ResponseEntity<UsersResponse> registerUsers(@RequestBody @Valid UsersDto usersDto) {
+        return ResponseEntity.ok(iUsersService.registerUsers(usersDto));
+    }
+
+    @GetMapping("/fetchUsersById/{userId}")
+    public ResponseEntity<UsersResponse> fetchUserById(@PathVariable Integer userId) {
+        return ResponseEntity.ok(iUsersService.fetchUserById(userId));
+
+    }
+
+    @GetMapping("/fetchUsersByIdValidate/{userId}")
+    public ResponseEntity<Boolean> fetchUsersByIdValidate(@PathVariable Integer userId) {
+        return ResponseEntity.ok(iUsersService.fetchUserByIdValidate(userId));
+    }
+}

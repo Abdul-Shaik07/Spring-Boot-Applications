@@ -1,0 +1,104 @@
+package com.fitness.activityservice.service;
+
+import com.fitness.activityservice.dto.ActivityDto;
+import com.fitness.activityservice.client.UsersClient;
+import com.fitness.activityservice.model.Activity;
+import com.fitness.activityservice.repository.ActivityRepository;
+import com.fitness.activityservice.response.ActivityResponse;
+import com.fitness.activityservice.webclient.UserValidationService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@AllArgsConstructor
+public class ActivityService implements IActivityService {
+
+    @Autowired
+    private ActivityRepository activityRepository;
+    @Autowired
+    private ModelMapper modelMapper;
+    
+    private final KafkaTemplate<String, Activity> kafkaTemplate;
+
+//    @Autowired
+//    private UserValidationService userValidationService;
+    @Autowired
+    private UsersClient usersClient;
+    
+    @Value("${kafka.topic.name}")
+    private String topicName;
+
+    @Override
+    public ActivityResponse registerActivity(ActivityDto activityDto) {
+        //boolean isValidUserId = userValidationService.validateUser(activityDto.getUserId());
+        Boolean isValidUserId = usersClient.fetchUserByIdValidate(activityDto.getUserId());
+        if (!isValidUserId) {
+            throw new RuntimeException("User Id is not a valid");
+        }
+        Activity activity = modelMapper.map(activityDto, Activity.class);
+       /* Activity activity = Activity.builder()
+                .usersId(activityDto.getUsersId())
+                .activityType(activityDto.getActivityType())
+                .duration(activityDto.getDuration())
+                .caloriesBurned(activityDto.getCaloriesBurned())
+                .startTime(activityDto.getStartTime())
+                .additionalMetrics(activityDto.getAdditionalMetrics())
+                .build();*/
+        Activity savedActivity = activityRepository.save(activity);
+        try {
+        	
+			kafkaTemplate.send(topicName, String.valueOf(savedActivity.getUserId()), savedActivity);
+        } catch(Exception e) {
+        	
+        }
+        return mapToResponse(savedActivity);
+    }
+
+    @Override
+    public ActivityResponse fetchActivityById(String activityId) {
+        Optional<Activity> returningActivityId = activityRepository.findById(activityId);
+        if(returningActivityId.isEmpty()) {
+            throw new RuntimeException("Activity Id is not found to fetch");
+        }
+        Activity activity = returningActivityId.get();
+        return mapToResponse(activity);
+    }
+
+
+    @Override
+    public List<ActivityResponse> getAllActivities() {
+        List<Activity> all = activityRepository.findAll();
+        if(all.isEmpty()) {
+            throw new RuntimeException("Activities are not found");
+        }
+        List<ActivityResponse> activityResponses = all.stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+        return activityResponses;
+    }
+
+    @Override
+    public List<ActivityResponse> getUserActivitiesByUserId(Integer userId) {
+        List<Activity> byUserId = activityRepository.findByUserId(userId);
+        if(byUserId.isEmpty()) {
+            throw new RuntimeException("User Id is not found " +byUserId);
+        }
+        return byUserId.stream().map(this::mapToResponse).collect(Collectors.toList());
+    }
+
+
+    private ActivityResponse mapToResponse(Activity activity) {
+        ActivityResponse activityResponse = modelMapper.map(activity, ActivityResponse.class);
+        return activityResponse;
+    }
+}
