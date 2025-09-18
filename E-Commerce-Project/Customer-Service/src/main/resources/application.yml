@@ -1,0 +1,25 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#server:
+#  port: 8083
+spring:
+  application:
+    name: customer-service
+  config:
+    import: optional:configserver:http://localhost:8888
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:1111/
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: abbu123
+#    url: jdbc:mysql://localhost:3306/customer_db
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
