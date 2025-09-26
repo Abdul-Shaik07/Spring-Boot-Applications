@@ -1,0 +1,12 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: ai-service
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:1111/
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/fitness-recommendation-db

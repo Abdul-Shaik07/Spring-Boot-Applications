@@ -19,6 +19,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -49,10 +52,12 @@
     &quot;Application.ServiceRegistryApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.UserServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.com.fitness.apigateway.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.microservice.eureka_server.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;Maven.Service-Registry [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.activity-service [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.ai-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.aiservice [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.api-gateway [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.config-server [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.user-service [clean].executor&quot;: &quot;Run&quot;,
@@ -63,6 +68,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.ActivityServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AiServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
@@ -71,9 +77,10 @@
     &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Spring Boot/Fitness-Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Spring-boot/Fitness-Project/ai-service/src/main/java/com/fitness/aiservice&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,25 +90,27 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.fitness.activityservice.repository" />
-      <recent name="com.fitness.activityservice.service" />
-      <recent name="com.fitness.activityservice.response" />
-      <recent name="com.fitness.activityservice.dto" />
-      <recent name="com.fitness.activityservice.model" />
+      <recent name="com.fitness.aiservice.model" />
+      <recent name="com.fitness.aiservice.repository" />
+      <recent name="com.fitness.aiservice.dto" />
+      <recent name="com.fitness.aiservice.response" />
+      <recent name="com.fitness.aiservice.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Spring-boot\Fitness-Project\ai-service\src\main\java\com\fitness\aiservice" />
       <recent name="D:\Spring Boot\Fitness-Project\config-server\config-server\src\main\resources\config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Spring Boot\Fitness-Project\activity-service\activity-service\src\test\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fitness.aiservice.model" />
       <recent name="com.fitness.activityservice.response" />
     </key>
   </component>
@@ -119,42 +128,14 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
-    <option name="hiddenConfigurations">
-      <map>
-        <entry key="SpringBootApplicationConfigurationType">
-          <value>
-            <set>
-              <option value="ActivityServiceApplication" />
-              <option value="AiServiceApplication" />
-              <option value="ApiGatewayApplication" />
-              <option value="ConfigServerApplication" />
-              <option value="EurekaServerApplication" />
-              <option value="UserServiceApplication" />
-            </set>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="configurationStatuses">
-      <map>
-        <entry key="SpringBootApplicationConfigurationType">
-          <value>
-            <map>
-              <entry key="AiServiceApplication" value="STOPPED" />
-              <entry key="EurekaServerApplication" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ActivityServiceApplication">
-    <configuration name="EurekaServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fitness.eurekaserver.EurekaServerApplication" />
-      <module name="eureka-server" />
+  <component name="RunManager" selected="Application.EurekaServerApplication">
+    <configuration name="ActivityServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fitness.activityservice.ActivityServiceApplication" />
+      <module name="activity-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fitness.eurekaserver.*" />
+          <option name="PATTERN" value="com.fitness.activityservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,17 +143,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="activity-service" />
+    <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fitness.apigateway.ApiGatewayApplication" />
+      <module name="api-gateway" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fitness.activityservice.controller.*" />
+          <option name="PATTERN" value="com.fitness.apigateway.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.fitness.activityservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.fitness.activityservice.controller.ActivityControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.configserver.ConfigServerApplication" />
+      <module name="config-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.configserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.microservice.eureka_server.EurekaServerApplication" />
+      <module name="eureka-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.microservice.eureka_server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fitness.userservice.UserServiceApplication" />
+      <module name="user-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fitness.userservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,9 +242,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ActivityServiceApplication" />
+      <item itemvalue="Application.ApiGatewayApplication" />
+      <item itemvalue="Application.EurekaServerApplication" />
+      <item itemvalue="Application.ConfigServerApplication" />
+      <item itemvalue="Application.UserServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ActivityControllerTest" />
+        <item itemvalue="Application.ActivityServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.ConfigServerApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.EurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -235,7 +263,6 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
       </set>
     </attachedChunks>
   </component>
@@ -275,6 +302,11 @@
           <line>11</line>
           <properties field="usersResponse" class="com.fitness.activityservice.response.ActivitiesWithUserId" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/eureka-server/src/main/java/com/microservice/eureka_server/EurekaServerApplication.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

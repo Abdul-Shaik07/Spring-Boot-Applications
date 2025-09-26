@@ -33,8 +33,8 @@ public class UsersController {
 
     }
 
-    @GetMapping("/fetchUsersByIdValidate/{userId}")
-    public ResponseEntity<Boolean> fetchUsersByIdValidate(@PathVariable("userId") Integer userId) {
+    @GetMapping("/fetchUserByIdValidate/{userId}")
+    public ResponseEntity<Boolean> fetchUserByIdValidate(@PathVariable("userId") Integer userId) {
         return ResponseEntity.ok(iUsersService.fetchUserByIdValidate(userId));
     }
 }
