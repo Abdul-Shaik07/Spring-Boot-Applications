@@ -1,0 +1,20 @@
+package com.fitness.activityservice.service;
+
+import com.fitness.activityservice.dto.ActivityDto;
+import com.fitness.activityservice.response.ActivityResponse;
+
+import java.util.List;
+
+public interface IActivityService {
+	
+	ActivityResponse registerActivity(ActivityDto activityDto);
+	
+	ActivityResponse getActivityById(String activityId);
+    
+    List<ActivityResponse> getAllActivities();
+    
+    List<ActivityResponse> getUserActivitiesByUserId(Integer userId);
+
+  
+}
+

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    
+    background-color: #687aa0;
+    margin: 15px;
+}
+
+h5 {
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+.container-fluid {
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+
+}

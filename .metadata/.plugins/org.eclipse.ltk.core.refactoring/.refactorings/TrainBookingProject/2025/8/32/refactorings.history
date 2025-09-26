@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.wipro.trainbookingproject.Dto.TrainDto&apos; to &apos;TrainResponseDto&apos;&#x0D;&#x0A;- Original project: &apos;TrainBookingProject&apos;&#x0D;&#x0A;- Original element: &apos;com.wipro.trainbookingproject.Dto.TrainDto&apos;&#x0D;&#x0A;- Renamed element: &apos;com.wipro.trainbookingproject.Dto.TrainResponseDto&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TrainDto&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.wipro.trainbookingproject.Dto{TrainDto.java[TrainDto" matchStrategy="1" name="TrainResponseDto" qualified="false" references="true" similarDeclarations="false" stamp="1754285658094" textual="false" version="1.0"/>
+</session>

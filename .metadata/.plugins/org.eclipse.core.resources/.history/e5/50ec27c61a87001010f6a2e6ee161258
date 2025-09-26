@@ -1,0 +1,15 @@
+package com.fitness.activityservice.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+@FeignClient(name = "USER-SERVICE")
+public interface UsersClient {
+
+    @GetMapping("/users/api/fetchUsersByIdValidate/{userId}")
+    Boolean fetchUserByIdValidate(@PathVariable("userId") Integer userId);
+
+//    @GetMapping("/users/api/fetchUserById/{userId}")
+//    UsersResponse fetchUserById(@PathVariable Integer userId);
+
+}
