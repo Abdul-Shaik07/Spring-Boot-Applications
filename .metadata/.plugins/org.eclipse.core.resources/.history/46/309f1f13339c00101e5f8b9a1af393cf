@@ -1,0 +1,90 @@
+package com.java8;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class A0 {
+	
+	public static void main(String[] args) {
+		List<Employee> employeeList = Arrays.asList(
+				new Employee(1, "Abdul", "IT", 45632.32, "Hyderabad"),
+				new Employee(2, "Jeeva", "Business", 145632.32, "Kodur"),
+				new Employee(3, "Harish", "Civil", 245632.32, "Chennai"),
+				new Employee(4, "Sudharshan", "Sales", 35632.32, "Hyderabad")
+				);
+		List<Employee> list = employeeList.stream().sorted(Comparator.comparing(Employee::getEmployeeName)).toList();
+		System.out.println("Over streams");
+		for(Employee li: list) {
+			System.out.println(li);
+			
+		}
+		System.out.println(list);
+		//Collections.sort(null, null);
+		
+		for(Employee e : employeeList) {
+			System.out.println(e);
+		}
+		
+	}
+
+}
+
+class Employee {
+	private Integer employeeId;
+	private String employeeName;
+	private String departmentName;
+	private Double salary;
+	private String location;
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(Integer employeeId, String employeeName, String departmentName, Double salary, String location) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.departmentName = departmentName;
+		this.salary = salary;
+		this.location = location;
+	}
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public Double getSalary() {
+		return salary;
+	}
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", departmentName="
+				+ departmentName + ", salary=" + salary + ", location=" + location + "]";
+	}
+	
+}
